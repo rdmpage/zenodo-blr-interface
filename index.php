@@ -50,7 +50,9 @@ function display_search($q, $bookmark = '')
 	
 	
 	echo '<div class="top">';
+	
 	echo '<form >
+	<a href=".">Home</a>
 	  <input style="font-size:24px;" name="q" placeholder="Search term" value="' . $q . '" >
 	  <button style="font-size:24px;">Search</button>
 	</form>';
@@ -137,6 +139,7 @@ function default_display()
 	
 	echo '<div class="top">';
 	echo '<form >
+	<a href=".">Home</a>
 	  <input style="font-size:24px;" name="q" placeholder="Search term" value="' . $q . '" >
 	  <button style="font-size:24px;">Search</button>
 	</form>';
@@ -146,6 +149,18 @@ function default_display()
 	echo '<h1>Biodiversity Literature Repository Image Search</h1>';
 	echo '<p>Explore images in the <a href="https://zenodo.org/communities/biosyslit">Biodiversity Literature Repository</a></p>';
 	
+	echo '<p>Examples:';
+	echo '<ul>';
+	echo '<li><a href="?q=distribution map">distribution map</a></li>';
+	echo '<li><a href="?q=amnh">AMNH specimens</a></li>';
+	echo '<li><a href="?q=phylogeny">phylogeny</a></li>';
+	echo '<li><a href="?q=neotype">neotype</a></li>';
+	echo '<li><a href="?q=dorsal habitus">dorsal habitus</a></li>';
+	
+	
+	
+	echo '</ul>';
+	echo '</p>';
 	
 	echo '</div>';
 	echo '</body>';
