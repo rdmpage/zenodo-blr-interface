@@ -44,63 +44,7 @@ function display_search($q, $bookmark = '')
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		
-			<script>
-			</script>
-		
-		<!--
-			<style>
-				.highlight { font-weight: bold; background-color:orange; }
-			</style> -->
-			
-			<style>
-			
-			
-			 body {
-			   font-family:sans-serif;
-			   background-color:rgb(248,248,248);
-			   margin:0px;
-			}
-			
-			
-/* https://www.sitepoint.com/using-modern-css-to-build-a-responsive-image-grid/ */
-div {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-a {
-  font-size: 12px; 
-  display: inline-block;
-  margin-bottom: 8px;
-  width: calc(50% - 4px);
-  margin-right: 8px;
-  /*border: 1px solid rgb(192,192,192);*/
-  background-color:white;
-}
-
-a:nth-of-type(2n) {
-  margin-right: 0;
-}
-
-@media screen and (min-width: 50em) {
-  a {
-    width: calc(25% - 6px);
-  }
-
-  a:nth-of-type(2n) {
-    margin-right: 8px;
-  }
-
-  a:nth-of-type(4n) {
-    margin-right: 0;
-  }
-}
-
-.top{position: fixed; width: 100%; top: 0; height: 40px; background-color:white;border-bottom:1px solid rgb(192,192,192);}
-.push{margin-bottom: 40px}
-
-</style>			
-		
+			<link rel="stylesheet" href="style.css" />
 		</head>
 		<body>';
 	
@@ -144,14 +88,15 @@ a:nth-of-type(2n) {
 	
 	*/
 
-	echo '<div>';
+	echo '<div class="box">';
 	foreach ($obj->rows as $row)
 	{
 	
 	
 	
-
-		echo '<a href="https://zenodo.org/record/' . str_replace('oai:zenodo.org:', '', $row->id) . '">';
+		echo '<div class="image">';
+		
+		echo '<a href="https://zenodo.org/record/' . str_replace('oai:zenodo.org:', '', $row->id) . '" target="_new">';
 		echo '<figure>';
 		//echo '<img src="http://exeg5le.cloudimg.io/s/width/128/https://zenodo.org/record/' . str_replace('oai:zenodo.org:', '', $row->id) . '/files/figure.png" />';
 		
@@ -161,31 +106,8 @@ a:nth-of-type(2n) {
 		echo '<figcaption>' . substr($row->fields->default, 0, 100) . '...</figcaption>';
 		echo '</figure>';
 		echo '</a>';
+		echo '</div>';
 
-		echo "\n";
-		
-		
-		/*
-		echo '<div style="font-size:18px;font-weight:bold;">' . $row->fields->default . '</div>';
-		
-		echo '<div style="font-size:14px;color:gray;">';
-		foreach ($row->highlights->default as $highlight)
-		{
-			echo $highlight . '<br />';
-		}
-		echo '</div>';
-		
-		echo '<div>';
-		
-		echo '<img style="border:1px solid rgb(192,192,192);" src="http://exeg5le.cloudimg.io/s/width/200/https://zenodo.org/record/' . str_replace('oai:zenodo.org:', '', $row->id) . '/files/figure.png" />';
-		echo '<br />';
-		echo  '<div style="width:200px;font-size:10px;">' . $row->fields->default . '</div>';
-		
-		echo '</div>';
-		
-		
-	
-		echo '</div>';*/
 	}
 	
 	echo '</div>';
@@ -199,7 +121,36 @@ a:nth-of-type(2n) {
 //----------------------------------------------------------------------------------------
 function default_display()
 {
-	echo 'Hi';
+	$q = '';
+		// Display...
+		echo 
+	'<!DOCTYPE html>
+	<html>
+		<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		
+			<link rel="stylesheet" href="style.css" />
+		</head>
+		<body>';
+	
+	
+	echo '<div class="top">';
+	echo '<form >
+	  <input style="font-size:24px;" name="q" placeholder="Search term" value="' . $q . '" >
+	  <button style="font-size:24px;">Search</button>
+	</form>';
+	echo '</div>';
+	echo '<div class="push"></div>';
+	echo '<div style="padding:30px;">';
+	echo '<h1>Biodiversity Literature Repository Image Search</h1>';
+	echo '<p>Explore images in the <a href="https://zenodo.org/communities/biosyslit">Biodiversity Literature Repository</a></p>';
+	
+	
+	echo '</div>';
+	echo '</body>';
+	echo '</html>';
+
 }
 
 //----------------------------------------------------------------------------------------
