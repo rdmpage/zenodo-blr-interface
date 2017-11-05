@@ -156,6 +156,7 @@ function default_display()
 	echo '<li><a href="?q=phylogeny">phylogeny</a></li>';
 	echo '<li><a href="?q=neotype">neotype</a></li>';
 	echo '<li><a href="?q=dorsal habitus">dorsal habitus</a></li>';
+	echo '<li><a href="?q=paratype">paratype</a></li>';
 	
 	
 	
