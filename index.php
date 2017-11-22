@@ -1,7 +1,6 @@
 <?php
 
 require_once(dirname(__FILE__) . '/lib.php');
-require_once(dirname(__FILE__) . '/couchsimple.php');
 
 //----------------------------------------------------------------------------------------
 function display_search($q, $bookmark = '')
@@ -22,8 +21,11 @@ function display_search($q, $bookmark = '')
 	{
 		$parameters['bookmark'] = $bookmark;
 	}
+	
+	$username = getenv('CLOUDANT_USERNAME');
+	$password = getenv('CLOUDANT_PASSWORD');
 			
-	$url = 'https://rdmpage:peacrab280398@rdmpage.cloudant.com/zenodo/_design/search/_search/figure?' .  http_build_query($parameters);
+	$url = 'https://' . $username . ':' . $password . '@rdmpage.cloudant.com/zenodo/_design/search/_search/figure?' .  http_build_query($parameters);
 
 	//echo $url . '<br />';
 

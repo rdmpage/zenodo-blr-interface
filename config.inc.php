@@ -27,30 +27,5 @@ $config['proxy_port'] 	= '';
 //$config['proxy_port'] 	= '8080';
 
 
-// Cache---------------------------------------------------------------------------------
-
-$config['cache_dir'] = dirname(__FILE__) . '/cache';
-
-	// local
-	$config['couchdb_options'] = array(
-			'database' => 'zenodo', // note typo
-			'host' => 'localhost',
-			'port' => 5984,
-			'prefix' => 'http://'
-			);		
-	
-
-// HTTP proxy
-if ($config['proxy_name'] != '')
-{
-	if ($config['couchdb_options']['host'] != 'localhost')
-	{
-		$config['couchdb_options']['proxy'] = $config['proxy_name'] . ':' . $config['proxy_port'];
-	}
-}
-
-$config['stale'] = true;
-
-
 	
 ?>
