@@ -25,7 +25,8 @@ function display_search($q, $bookmark = '')
 	$username = getenv('CLOUDANT_USERNAME');
 	$password = getenv('CLOUDANT_PASSWORD');
 			
-	$url = 'https://' . $username . ':' . $password . '@rdmpage.cloudant.com/zenodo/_design/search/_search/figure?' .  http_build_query($parameters);
+	//$url = 'https://' . $username . ':' . $password . '@rdmpage.cloudant.com/zenodo/_design/search/_search/figure?' .  http_build_query($parameters);
+	$url = 'https://' . $username . ':' . $password . '@4c577ff8-0f3d-4292-9624-41c1693c433b-bluemix.cloudant.com/zenodo/_design/search/_search/figure?' .  http_build_query($parameters);
 
 	//echo $url . '<br />';
 
